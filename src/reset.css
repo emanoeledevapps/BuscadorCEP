@@ -41,3 +41,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.container{
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+}

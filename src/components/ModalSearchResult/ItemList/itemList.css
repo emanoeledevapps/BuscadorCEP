@@ -1,0 +1,23 @@
+.item-list__container{
+    border: 2px #800080 solid;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    border-radius: 8px;
+    width: '100%';
+}
+
+.item-list__container-texts-info{
+    display: flex;
+    margin-bottom: 5px;
+    gap: 3px;
+}
+
+.item-list__label-info{
+    font:bold medium sans-serif
+}
+
+.item-list__text-info{
+    font: bold medium sans-serif;
+    color: #800080;
+}

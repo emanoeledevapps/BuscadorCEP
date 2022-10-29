@@ -1,0 +1,24 @@
+.header__container{
+    align-items: center;
+    background-color: purple;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 15px;
+    width: '100%';
+}
+
+.header__title{
+    color: #fff;
+    font: bold x-large sans-serif;
+}
+
+.nav__link{
+    font: bold large sans-serif;
+    margin: 0 5px;
+    color: #ddd;
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgb(119, 2, 119);
+    border-radius: 8px;
+}
