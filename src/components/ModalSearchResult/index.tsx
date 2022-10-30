@@ -5,10 +5,9 @@ import {ItemList} from './ItemList';
 
 interface Props{
     data: AddressProps[];
-    closeModal: () => void;
 }
 
-export function ModalSearchResult({data, closeModal}: Props){
+export function ModalSearchResult({data}: Props){
     
     return(
         <Dialog.Portal className='modal-search-result__portal'>
@@ -26,12 +25,11 @@ export function ModalSearchResult({data, closeModal}: Props){
                     <p className='modal-search-result__text-lengths-address'>
                         Foram encontrado(s) {data.length} endereços para a sua busca.
                     </p>
-                    <button
+                    <Dialog.Close
                         className='modal-search-result__btn-goback'
-                        onClick={closeModal}
                     >
                         Voltar
-                    </button>
+                    </Dialog.Close>
                 </div>
             </Dialog.Content>
         </Dialog.Portal>

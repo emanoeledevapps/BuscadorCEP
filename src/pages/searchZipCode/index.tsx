@@ -4,6 +4,7 @@ import './searchZipCode.css';
 import { useNavigate } from 'react-router-dom';
 
 import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 
 import { ApiIBGE, ApiViacep } from '../../services/api';
 import {StatesProps, CountieProps, AddressProps} from '../../interfaces/places';
@@ -109,6 +110,7 @@ export function SearchZipCode(){
                         onChange={(e) => setCountieSelected(e.target.value)}
                         className='input'
                         required
+                        disabled={stateSelected === ''}
                     >
                         <option disabled value=''>Selecione o município</option>
                         {counties?.map(countie => {
@@ -130,6 +132,7 @@ export function SearchZipCode(){
                         placeholder='Digite o nome do logradouro'
                         type='text'
                         required
+                        disabled={countieSelected === ''}
                     />
 
                     <div className='form__container-btns'>
@@ -150,11 +153,11 @@ export function SearchZipCode(){
                     </div>
                 </form>
             </main>
+            <footer>
+                <Footer/>
+            </footer>
             <Dialog.Root open={visibleModal} onOpenChange={(open) => setVisibleModal(open)}>
-                <ModalSearchResult
-                    data={address}
-                    closeModal={() => setVisibleModal(false)}
-                />
+                <ModalSearchResult data={address}/>
             </Dialog.Root>
             <ToastContainer
                 position="top-right"

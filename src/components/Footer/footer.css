@@ -1,0 +1,15 @@
+.footer__container{
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #800080;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer__strong{
+    font: bold medium sans-serif;
+    color: #fff;
+}

@@ -21,3 +21,12 @@
     font: bold medium sans-serif;
     color: #800080;
 }
+
+@media screen and (max-width: 426px){
+    .item-list__label-info{
+        font-size: small;
+    }
+    .item-list__text-info{
+        font-size: small
+    }
+}

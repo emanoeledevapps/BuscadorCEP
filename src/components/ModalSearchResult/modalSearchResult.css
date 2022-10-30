@@ -69,3 +69,24 @@
     cursor: pointer;
     background-color: #ccc;
 }
+
+@media screen and (max-width: 426px){
+    .modal-search-result__content{
+        width: 90vw;
+    }
+    .modal-search-result__content-result{
+        width: 85vw;
+    }
+    .modal-search-result__area-btn{
+        flex-direction: column;
+    }
+    .modal-search-result__text-lengths-address{
+        font-size: x-small;
+        margin-bottom: 5px;
+    }
+    .modal-search-result__btn-goback{
+        width: 80px;
+        height: 30px;
+        font-size: small;
+    }
+}

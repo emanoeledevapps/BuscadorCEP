@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import './searchAddress.css';
 import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 import {useNavigate} from 'react-router-dom';
 import MaskedInput from 'react-text-mask';
 import { ApiViacep } from '../../services/api';
@@ -19,13 +20,15 @@ export function SearchAddress(){
 
     async function handleFindAddress(e: React.SyntheticEvent){
         e.preventDefault();
+        const address = [];
         const api = ApiViacep();
         const response = await api.get(`/${zipCodeUnmasked}/json/`);
         if(response.data?.erro){
             toast.error('Nenhum endereço encontrado para o CEP informado!')
             return;
         }
-        addressZipCode.push(response.data);
+        address.push(response.data);
+        setAddressZipCode(address);
         setVisibleModal(true);
     }
 
@@ -78,12 +81,12 @@ export function SearchAddress(){
                     </div>
                 </form>
             </main>
+            <footer>
+                <Footer/>
+            </footer>
             <Dialog.Root 
                 open={visibleModal} 
-                onOpenChange={(open) => {
-                    setAddressZipCode([]);
-                    setVisibleModal(open)
-                }}
+                onOpenChange={(open) => setVisibleModal(open)}
             >
                 <ModalSearchAddressResult data={addressZipCode}/>
             </Dialog.Root>

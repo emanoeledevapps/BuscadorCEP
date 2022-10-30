@@ -8,6 +8,7 @@
 
 .search-zip-code__info{
     font: medium sans-serif;
+    text-align: center;
 }
 
 .search-zip-code__form{
@@ -75,4 +76,16 @@
 .btn-submit-form:disabled{
     background-color: #aaa;
     cursor: auto;
+}
+
+@media screen and (max-width: 426px){
+    .search-zip-code__content{
+        margin-top: 20px;
+    }
+    .search-zip-code__info{
+        font-size: small;
+    }
+    .search-zip-code__form{
+        width: 95vw;
+    }
 }

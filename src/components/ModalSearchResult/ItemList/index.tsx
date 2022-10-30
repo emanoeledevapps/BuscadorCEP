@@ -22,6 +22,11 @@ export function ItemList({data}: Props){
                 <h3 className='item-list__label-info'>Município:</h3>
                 <p className='item-list__text-info'>{data.localidade}</p>
             </div>
+            
+            <div className='item-list__container-texts-info'>
+                <h3 className='item-list__label-info'>Bairro:</h3>
+                <p className='item-list__text-info'>{data.bairro}</p>
+            </div>
 
             <div className='item-list__container-texts-info'>
                 <h3 className='item-list__label-info'>Logradouro:</h3>

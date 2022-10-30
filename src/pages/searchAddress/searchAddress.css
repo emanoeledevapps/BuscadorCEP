@@ -8,6 +8,7 @@
 
 .search-address__info{
     font: medium sans-serif;
+    text-align: center;
 }
 
 .search-address__form{
@@ -75,4 +76,18 @@
 .btn-submit-form:disabled{
     background-color: #aaa;
     cursor: auto;
+}
+
+@media screen and (max-width: 376px){
+    .search-address__content{
+        margin-top: 20px;
+    }
+
+    .search-address__info{
+        font-size: small;
+    }
+
+    .search-address__form{
+        width: 95vw;
+    }
 }
