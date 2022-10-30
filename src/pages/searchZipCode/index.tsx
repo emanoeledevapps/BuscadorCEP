@@ -142,7 +142,7 @@ export function SearchZipCode(){
                         </button>
                         <button 
                             type='submit'
-                            disabled={stateSelected === '' || countieSelected === ''}
+                            disabled={stateSelected === '' || countieSelected === '' || publicPlace === ''}
                             className='btn-submit-form'
                         >
                             Pesquisar

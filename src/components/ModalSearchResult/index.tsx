@@ -23,6 +23,9 @@ export function ModalSearchResult({data, closeModal}: Props){
                     ))}
                 </div>
                 <div className='modal-search-result__area-btn'>
+                    <p className='modal-search-result__text-lengths-address'>
+                        Foram encontrado(s) {data.length} endereços para a sua busca.
+                    </p>
                     <button
                         className='modal-search-result__btn-goback'
                         onClick={closeModal}

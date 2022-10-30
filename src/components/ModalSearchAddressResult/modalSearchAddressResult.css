@@ -1,23 +1,23 @@
-.modal-search-result__portal{
+.modal-search-address-result__portal{
     display: flex;
     justify-content: center;
     align-items: center;
     inset: 0;
 }
 
-.modal-search-result__overlay{
+.modal-search-address-result__overlay{
     background-color: rgba(0,0,0,0.6);
     position: fixed;
     inset: 0;
 }
 
-.modal-search-result__content{
+.modal-search-address-result__content{
     position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 500px;
-    height: 400px;
+    height: 215px;
     padding: 10px;
     background-color: white;
     border-radius: 8px;
@@ -25,33 +25,33 @@
     inset: 0;
 }
 
-.modal-search-result__title{
+.modal-search-address-result__title{
     font: bold large sans-serif;
     margin-bottom: 15px;
 }
 
-.modal-search-result__content-result{
+.modal-search-address-result__content-address-result{
     display: flex;
     flex-direction: column;
     width: 480px;
     gap: 10px;
-    height: 320px;
+    height: 270px;
     overflow: scroll;
 }
 
-.modal-search-result__area-btn{
+.modal-search-address-result__area-btn{
     align-items: center;
     display: flex;
     width: 480px;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-top: 10px;
 }
 
-.modal-search-result__text-lengths-address{
+.modal-search-address-result__text-lengths-address{
     font: bold small sans-serif;
 }
 
-.modal-search-result__btn-goback{
+.modal-search-address-result__btn-goback{
     background-color: #ddd;
     border: 0;
     border-radius: 8px;
@@ -65,7 +65,7 @@
     font-size: medium;
 }
 
-.modal-search-result__btn-goback:hover{
+.modal-search-address-result__btn-goback:hover{
     cursor: pointer;
     background-color: #ccc;
 }
