@@ -15,7 +15,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: sans-serif;
+	font-family: 'Roboto',sans-serif;
 	vertical-align: baseline;
 }
 
@@ -46,4 +46,75 @@ table {
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
+}
+
+.container-input{
+    display: flex;
+    flex-direction: column;
+    border: 1px #ddd solid;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.label-input{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-weight: bold;
+    font-size: small;
+    margin-bottom: 3px;
+}
+
+.input{
+    width: '100%';
+    height: 30px;
+    background-color: #fff;
+    border: 0;
+}
+
+.form__btn-goback{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    background-color: #ddd;
+    border: 0;
+    border-radius: 8px;
+    color: #387EFF;
+    font-weight: bold;
+    height: 40px;
+    transition: 0.2s all;
+    text-decoration: none;
+    width: 100px;
+    font-size: medium;
+}
+
+.form__btn-goback:hover{
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+.btn-submit-form{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+    background-color: #387EFF;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: medium;
+    height: 40px;
+    transition: 0.2s all;
+    width: 110px;
+}
+
+.btn-submit-form:hover{
+    background-color: #2e69d7;
+    cursor: pointer;
+}
+
+.btn-submit-form:disabled{
+    background-color: #aaa;
+    cursor: auto;
 }

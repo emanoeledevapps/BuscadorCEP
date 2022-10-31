@@ -4,13 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #800080;
+    background-color: #387EFF;
     position: fixed;
     bottom: 0;
 }
 
 .footer__strong{
-    font: bold medium sans-serif;
+    font-weight: bold;
+    font-size: medium;
     color: #fff;
 }
 

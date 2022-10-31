@@ -1,19 +1,26 @@
 import React,{ useState, useEffect} from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
-import './searchZipCode.css';
 import { useNavigate } from 'react-router-dom';
+import './searchZipCode.css';
 
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import { Loading } from '../../components/Loading';
-
-import { ApiIBGE, ApiViacep } from '../../services/api';
-import {StatesProps, CountieProps, AddressProps} from '../../interfaces/places';
-
+//Material UI
+import * as Dialog from '@radix-ui/react-dialog';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//Services and Interfaces
+import { ApiIBGE, ApiViacep } from '../../services/api';
+import {StatesProps, CountieProps, AddressProps} from '../../interfaces/address';
+
+//Components
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
+import { Loading } from '../../components/Loading';
 import { ModalSearchZipcodeResult } from '../../components/ModalSearchZipcodeResult';
+
+//Icons
+import {MdLocationCity, MdOutlineArrowBackIos} from 'react-icons/md';
+import {HiHome} from 'react-icons/hi';
+import {FaSearch, FaMapMarkerAlt} from 'react-icons/fa';
 
 export function SearchZipCode(){
     const navigate = useNavigate();
@@ -88,61 +95,70 @@ export function SearchZipCode(){
                     onSubmit={(e: React.SyntheticEvent) => handleFindZipCode(e)}
                     className='search-zip-code__form'
                 >
-                    <label 
-                        htmlFor='input-state'
-                        className='label-input'
-                    >
-                        Estado
-                    </label>
-                    <select
-                        id='input-state'
-                        value={stateSelected}
-                        onChange={(e) => setStateSelected(e.target.value)}
-                        className='input'
-                        required
-                    >
-                        <option disabled value=''>Selecione o estado</option>
-                        {states?.map(state => {
-                            return <option key={state.id} value={`${state.id}-${state.sigla}-${state.nome}`}>{state.nome}</option>
-                        })}
-                    </select>
+                    <div className='container-input'>
+                        <label 
+                            htmlFor='input-state'
+                            className='label-input'
+                        >
+                            <FaMapMarkerAlt color='#000' size={20}/>
+                            Estado
+                        </label>
+                        <select
+                            id='input-state'
+                            value={stateSelected}
+                            onChange={(e) => setStateSelected(e.target.value)}
+                            className='input'
+                            required
+                        >
+                            <option disabled value=''>Selecione o estado</option>
+                            {states?.map(state => {
+                                return <option key={state.id} value={`${state.id}-${state.sigla}-${state.nome}`}>{state.nome}</option>
+                            })}
+                        </select>
+                    </div>
                     
-                    <label 
-                        htmlFor='input-countie'
-                        className='label-input'
-                    >
-                        Município
-                    </label>
-                    <select
-                        id='input-countie'
-                        value={countieSelected}
-                        onChange={(e) => setCountieSelected(e.target.value)}
-                        className='input'
-                        required
-                        disabled={stateSelected === ''}
-                    >
-                        <option disabled value=''>Selecione o município</option>
-                        {counties?.map(countie => {
-                            return <option key={countie.id} value={`${countie.id}-${countie.nome}`}>{countie.nome}</option>
-                        })}
-                    </select>
+                    <div className='container-input'>
+                        <label 
+                            htmlFor='input-countie'
+                            className='label-input'
+                        >
+                            <MdLocationCity size={20} color='#000'/>
+                            Município
+                        </label>
+                        <select
+                            id='input-countie'
+                            value={countieSelected}
+                            onChange={(e) => setCountieSelected(e.target.value)}
+                            className='input'
+                            required
+                            disabled={stateSelected === ''}
+                        >
+                            <option disabled value=''>Selecione o município</option>
+                            {counties?.map(countie => {
+                                return <option key={countie.id} value={`${countie.id}-${countie.nome}`}>{countie.nome}</option>
+                            })}
+                        </select>
+                    </div>
                     
-                    <label 
-                        htmlFor='input-public-place'
-                        className='label-input'
-                    >
-                        Logradouro
-                    </label>
-                    <input
-                        id='input-public-place'
-                        value={publicPlace} 
-                        onChange={(e) => setPublicPlace(e.target.value)}
-                        className='input'
-                        placeholder='Digite o nome do logradouro'
-                        type='text'
-                        required
-                        disabled={countieSelected === ''}
-                    />
+                    <div className='container-input'>
+                        <label 
+                            htmlFor='input-public-place'
+                            className='label-input'
+                        >
+                            <HiHome size={20} color='#000'/>
+                            Logradouro
+                        </label>
+                        <input
+                            id='input-public-place'
+                            value={publicPlace} 
+                            onChange={(e) => setPublicPlace(e.target.value)}
+                            className='input'
+                            placeholder='Digite o nome do logradouro'
+                            type='text'
+                            required
+                            disabled={countieSelected === ''}
+                        />
+                    </div>
 
                     <div className='form__container-btns'>
                         <button
@@ -150,6 +166,7 @@ export function SearchZipCode(){
                             onClick={() => navigate(-1)}
                             className='form__btn-goback'
                         >
+                            <MdOutlineArrowBackIos size={20} color='#387EFF'/>
                             Voltar
                         </button>
                         <button 
@@ -157,6 +174,7 @@ export function SearchZipCode(){
                             disabled={stateSelected === '' || countieSelected === '' || publicPlace === ''}
                             className='btn-submit-form'
                         >
+                            <FaSearch size={20} color='#fff'/>
                             Pesquisar
                         </button>
                     </div>

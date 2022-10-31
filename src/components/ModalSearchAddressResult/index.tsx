@@ -1,14 +1,18 @@
+//Material UI
 import './modalSearchAddressResult.css';
 import * as Dialog from '@radix-ui/react-dialog';
-import { AddressProps } from '../../interfaces/places';
 
+//Interfaces
+import { AddressProps } from '../../interfaces/address';
 interface Props{
     data: AddressProps[];
 }
 
+//Icons
+import {MdOutlineArrowBackIos} from 'react-icons/md';
+
 export function ModalSearchAddressResult({data}: Props){
     return(
-        <div>
             <Dialog.Portal className='modal-search-address-result__portal'>
                 <Dialog.Overlay className='modal-search-address-result__overlay'/>
                 <Dialog.Content className='modal-search-address-result__content'>
@@ -38,12 +42,12 @@ export function ModalSearchAddressResult({data}: Props){
                         ))}
                     </div>
                     <div className='modal-search-address-result__area-btn'>
-                        <Dialog.Close className='modal-search-address-result__btn-goback'>
+                        <Dialog.Close className='form__btn-goback'>
+                            <MdOutlineArrowBackIos size={20} color='#387EFF'/>
                             Voltar
                         </Dialog.Close>
                     </div>
                 </Dialog.Content>
             </Dialog.Portal>
-        </div>
     )
 }

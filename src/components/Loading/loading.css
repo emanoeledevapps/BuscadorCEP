@@ -27,6 +27,7 @@
 }
 
 .loading__title{
-    font: bold large sans-serif;
-    color: #800080;
+    font-weight: bold;
+    font-size: large;
+    color: #387EFF;
 }

@@ -1,6 +1,7 @@
 import './itemList.css';
-import {AddressProps} from '../../../interfaces/places';
 
+//Interfaces
+import {AddressProps} from '../../../interfaces/address';
 interface Props{
     data: AddressProps;
 }

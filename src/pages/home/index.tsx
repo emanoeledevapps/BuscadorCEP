@@ -1,7 +1,12 @@
 import {Link} from 'react-router-dom';
 import './home.css';
+
+//Components
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+
+//Icons
+import {BsEmojiWink} from 'react-icons/bs';
 
 export function Home(){
     return(
@@ -13,7 +18,7 @@ export function Home(){
                 <h2 className='home__title'>Bem vindo ao BuscadorCEP!</h2>
                 <h3 className='home__subtitle'>O aplicativo BuscadorCEP! permite que você encontre códigos de endereçamento postais (CEP).</h3>
                 <p className='home__description'>Se você já tiver o CEP em mãos e gostaria de buscar seu endereço, o BuscadorCEP! também vai te ajudar.</p>
-                <strong className='home__strong'>Aproveite! =D</strong>
+                <strong className='home__strong'>Aproveite! <BsEmojiWink size={20}/></strong>
 
                 <div className='home__area-btns'>
                     <Link 

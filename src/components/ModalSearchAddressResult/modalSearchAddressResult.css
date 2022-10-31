@@ -26,7 +26,8 @@
 }
 
 .modal-search-address-result__title{
-    font: bold large sans-serif;
+    font-weight: bold;
+    font-size: large;
     margin-bottom: 15px;
 }
 
@@ -48,26 +49,8 @@
 }
 
 .modal-search-address-result__text-lengths-address{
-    font: bold small sans-serif;
-}
-
-.modal-search-address-result__btn-goback{
-    background-color: #ddd;
-    border: 0;
-    border-radius: 8px;
-    color: #800080;
     font-weight: bold;
-    font-family: sans-serif;
-    height: 40px;
-    transition: 0.2s all;
-    text-decoration: none;
-    width: 100px;
-    font-size: medium;
-}
-
-.modal-search-address-result__btn-goback:hover{
-    cursor: pointer;
-    background-color: #ccc;
+    font-size: small;
 }
 
 @media screen and (max-width: 426px){

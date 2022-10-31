@@ -1,16 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
+import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import './searchAddress.css';
+
+//Material UI
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import MaskedInput from 'react-text-mask';
+import * as Dialog from '@radix-ui/react-dialog';
+
+//Services and Interfaces
+import { ApiViacep } from '../../services/api';
+import { AddressProps } from '../../interfaces/address';
+
+//Components
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { Loading } from '../../components/Loading';
-import {useNavigate} from 'react-router-dom';
-import MaskedInput from 'react-text-mask';
-import { ApiViacep } from '../../services/api';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { AddressProps } from '../../interfaces/places';
 import { ModalSearchAddressResult } from '../../components/ModalSearchAddressResult';
+
+//Icons
+import {MdLocationCity, MdOutlineArrowBackIos} from 'react-icons/md';
+import {FaSearch} from 'react-icons/fa';
 
 export function SearchAddress(){
     const navigate = useNavigate();
@@ -48,25 +58,28 @@ export function SearchAddress(){
                     onSubmit={(e: React.SyntheticEvent) => handleFindAddress(e)}
                     className='search-address__form'
                 >
-                    <label 
-                        htmlFor='input-zip-code'
-                        className='label-input'
-                    >
-                        CEP
-                    </label>
-                    <MaskedInput
-                        mask={[/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]}
-                        className="input"
-                        placeholder="Digite o CEP"
-                        guide={true}
-                        id="input-zip-code"
-                        value={zipCodeMasked}
-                        onChange={(e) => {
-                            setZipCodeMasked(e.target.value);
-                            setZipCodeUnmasked(e.target.value.replace('-','').replace('_____','').replace('__','').replace('_',''));
-                        }}
-                        required
-                    />
+                    <div className='container-input'>
+                        <label 
+                            htmlFor='input-zip-code'
+                            className='label-input'
+                        >
+                            <MdLocationCity size={20} color='#000'/>
+                            CEP
+                        </label>
+                        <MaskedInput
+                            mask={[/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]}
+                            className="input"
+                            placeholder="Digite o CEP"
+                            guide={true}
+                            id="input-zip-code"
+                            value={zipCodeMasked}
+                            onChange={(e) => {
+                                setZipCodeMasked(e.target.value);
+                                setZipCodeUnmasked(e.target.value.replace('-','').replace('_____','').replace('__','').replace('_',''));
+                            }}
+                            required
+                        />
+                    </div>
 
                     <div className='form__container-btns'>
                         <button
@@ -74,6 +87,7 @@ export function SearchAddress(){
                             onClick={() => navigate(-1)}
                             className='form__btn-goback'
                         >
+                            <MdOutlineArrowBackIos size={20} color='#387EFF'/>
                             Voltar
                         </button>
                         <button 
@@ -81,6 +95,7 @@ export function SearchAddress(){
                             disabled={zipCodeUnmasked.length != 8}
                             className='btn-submit-form'
                         >
+                            <FaSearch size={20} color='#fff'/>
                             Pesquisar
                         </button>
                     </div>

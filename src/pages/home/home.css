@@ -7,26 +7,33 @@
 }
 
 .home__title{
-    color: #800080;
-    font: bold xx-large sans-serif;
+    color: #387EFF;
+    font-weight: bold;
+    font-size: xx-large;
     margin-bottom: 10px;
     text-align: center;
 }
 
 .home__subtitle{
-    font: bold medium sans-serif;
+    font-weight: bold;
+    font-size: medium;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 .home__description{
-    font: 400 medium sans-serif;
+    font: 400 medium;
     margin-bottom: 10px;
     text-align: center;
 }
 
 .home__strong{
-    font: bold large sans-serif;
-    color: #800080;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-weight: bold;
+    font-size: large;
+    color: #387EFF;
     margin-bottom: 24px;
 }
 
@@ -39,12 +46,11 @@
 .home__btn{
     display: flex;
     align-items: center;
-    background-color: #800080;
+    background-color: #387EFF;
     border: 0;
     border-radius: 8px;
     color: #fff;
     font-weight: bold;
-    font-family: sans-serif;
     font-size: medium;
     height: 40px;
     justify-content: center;
@@ -54,7 +60,7 @@
 }
 
 .home__btn:hover{
-    background-color: rgb(115, 0, 115);
+    background-color: #2e69d7;
     cursor: pointer;
 }
 

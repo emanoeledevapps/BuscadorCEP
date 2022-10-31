@@ -1,6 +1,6 @@
 .header__container{
     align-items: center;
-    background-color: purple;
+    background-color: #387EFF;
     display: flex;
     justify-content: space-between;
     height: 80px;
@@ -10,16 +10,18 @@
 
 .header__title{
     color: #fff;
-    font: bold x-large sans-serif;
+    font-weight: bold;
+    font-size: x-large;
 }
 
 .nav__link{
-    font: bold large sans-serif;
+    font-weight: bold;
+    font-size: medium;
     margin: 0 5px;
-    color: #ddd;
+    color: #fff;
     text-decoration: none;
     padding: 10px;
-    background-color: rgb(119, 2, 119);
+    background-color: #2e69d7;
     border-radius: 8px;
 }
 

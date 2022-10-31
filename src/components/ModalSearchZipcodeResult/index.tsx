@@ -1,11 +1,18 @@
+import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import './modalSearchZipcodeResult.css';
-import {AddressProps} from '../../interfaces/places';
-import {ItemList} from './ItemList';
 
+//Interfaces
+import {AddressProps} from '../../interfaces/address';
 interface Props{
     data: AddressProps[];
 }
+
+//Components
+import {ItemList} from './ItemList';
+
+//Icons
+import {MdOutlineArrowBackIos} from 'react-icons/md';
 
 export function ModalSearchZipcodeResult({data}: Props){
     
@@ -26,8 +33,9 @@ export function ModalSearchZipcodeResult({data}: Props){
                         Foram encontrado(s) {data.length} endereço(s) para a sua busca.
                     </p>
                     <Dialog.Close
-                        className='modal-search-result__btn-goback'
+                        className='form__btn-goback'
                     >
+                        <MdOutlineArrowBackIos size={20} color='#387EFF'/>
                         Voltar
                     </Dialog.Close>
                 </div>

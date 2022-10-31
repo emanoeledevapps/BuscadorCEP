@@ -1,5 +1,5 @@
 .item-list__container{
-    border: 2px #800080 solid;
+    border: 2px #387EFF solid;
     display: flex;
     padding: 10px;
     flex-direction: column;
@@ -14,12 +14,14 @@
 }
 
 .item-list__label-info{
-    font:bold medium sans-serif
+    font-weight:bold;
+    font-size: medium;
 }
 
 .item-list__text-info{
-    font: bold medium sans-serif;
-    color: #800080;
+    font-weight:bold;
+    font-size: medium;
+    color: #387EFF;
 }
 
 @media screen and (max-width: 426px){
