@@ -3,6 +3,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import './searchAddress.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import { Loading } from '../../components/Loading';
 import {useNavigate} from 'react-router-dom';
 import MaskedInput from 'react-text-mask';
 import { ApiViacep } from '../../services/api';
@@ -13,6 +14,7 @@ import { ModalSearchAddressResult } from '../../components/ModalSearchAddressRes
 
 export function SearchAddress(){
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const [zipCodeMasked, setZipCodeMasked] = useState('');
     const [zipCodeUnmasked, setZipCodeUnmasked] = useState('');
     const [addressZipCode, setAddressZipCode] = useState<AddressProps[]>([]);
@@ -20,20 +22,23 @@ export function SearchAddress(){
 
     async function handleFindAddress(e: React.SyntheticEvent){
         e.preventDefault();
+        setLoading(true);
         const address = [];
         const api = ApiViacep();
         const response = await api.get(`/${zipCodeUnmasked}/json/`);
         if(response.data?.erro){
+            setLoading(false);
             toast.error('Nenhum endereço encontrado para o CEP informado!')
             return;
         }
         address.push(response.data);
         setAddressZipCode(address);
+        setLoading(false);
         setVisibleModal(true);
     }
 
     return(
-        <div>
+        <>
             <header>
                 <Header/>
             </header>
@@ -84,6 +89,9 @@ export function SearchAddress(){
             <footer>
                 <Footer/>
             </footer>
+            <Dialog.Root open={loading}>
+                <Loading/>
+            </Dialog.Root>
             <Dialog.Root 
                 open={visibleModal} 
                 onOpenChange={(open) => setVisibleModal(open)}
@@ -102,6 +110,6 @@ export function SearchAddress(){
                 pauseOnHover
                 theme="light"
             />
-        </div>
+        </>
     )
 }

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import { Loading } from '../../components/Loading';
 
 import { ApiIBGE, ApiViacep } from '../../services/api';
 import {StatesProps, CountieProps, AddressProps} from '../../interfaces/places';
@@ -12,10 +13,11 @@ import {StatesProps, CountieProps, AddressProps} from '../../interfaces/places';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { ModalSearchResult } from '../../components/ModalSearchResult';
+import { ModalSearchZipcodeResult } from '../../components/ModalSearchZipcodeResult';
 
 export function SearchZipCode(){
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const [states, setStates] = useState<StatesProps[]>([]);
     const [stateSelected, setStateSelected] = useState('');
     const [counties, setCounties] = useState<CountieProps[]>([]);
@@ -33,17 +35,21 @@ export function SearchZipCode(){
     },[stateSelected]);
 
     async function GetStates(){
+        setLoading(true);
         const api = ApiIBGE();
         const response = await api.get('/localidades/estados?orderBy=nome');
         setStates(response.data);
+        setLoading(false);
     }
 
     async function GetCounties(){
+        setLoading(true);
         const arrayState = stateSelected.split('-');
         const idState = arrayState[0];
         const api = ApiIBGE();
         const response = await api.get(`/localidades/estados/${idState}/municipios`);
         setCounties(response.data);
+        setLoading(false);
     }
 
     async function handleFindZipCode(e: React.SyntheticEvent){
@@ -52,6 +58,7 @@ export function SearchZipCode(){
             toast.error('Você deve digitar pelo menos 3 caracteres no campo logradouro!');
             return;
         }
+        setLoading(true);
         const arrayState = stateSelected.split('-');
         const arrayCountie = countieSelected.split('-');
         const initialState = arrayState[1];
@@ -60,10 +67,12 @@ export function SearchZipCode(){
         const api = ApiViacep();
         const response = await api.get(`/${initialState}/${nameCountie}/${publicPlace}/json/`);
         if(response.data.length === 0){
+            setLoading(false);
             toast.error('Não foram encontrados nenhum endereço para a sua busca!');
             return;
         }
         setAddress(response.data);
+        setLoading(false);
         setVisibleModal(true);
     }
 
@@ -156,8 +165,11 @@ export function SearchZipCode(){
             <footer>
                 <Footer/>
             </footer>
+            <Dialog.Root open={loading}>
+                <Loading/>
+            </Dialog.Root>
             <Dialog.Root open={visibleModal} onOpenChange={(open) => setVisibleModal(open)}>
-                <ModalSearchResult data={address}/>
+                <ModalSearchZipcodeResult data={address}/>
             </Dialog.Root>
             <ToastContainer
                 position="top-right"
