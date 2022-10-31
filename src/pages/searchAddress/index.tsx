@@ -3,20 +3,20 @@ import {useNavigate} from 'react-router-dom';
 import './searchAddress.css';
 
 //Material UI
+import * as Dialog from '@radix-ui/react-dialog';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MaskedInput from 'react-text-mask';
-import * as Dialog from '@radix-ui/react-dialog';
 
 //Services and Interfaces
 import { ApiViacep } from '../../services/api';
 import { AddressProps } from '../../interfaces/address';
 
 //Components
+import { ModalSearchAddressResult } from '../../components/ModalSearchAddressResult';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { Loading } from '../../components/Loading';
-import { ModalSearchAddressResult } from '../../components/ModalSearchAddressResult';
 
 //Icons
 import {MdLocationCity, MdOutlineArrowBackIos} from 'react-icons/md';
@@ -92,7 +92,7 @@ export function SearchAddress(){
                         </button>
                         <button 
                             type='submit'
-                            disabled={zipCodeUnmasked.length != 8}
+                            disabled={zipCodeUnmasked.length !== 8}
                             className='btn-submit-form'
                         >
                             <FaSearch size={20} color='#fff'/>

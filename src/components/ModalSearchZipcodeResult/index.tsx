@@ -1,4 +1,7 @@
-import React from 'react';
+import {MdOutlineArrowBackIos} from 'react-icons/md';
+import {ItemList} from './ItemList';
+
+//Material UI
 import * as Dialog from '@radix-ui/react-dialog';
 import './modalSearchZipcodeResult.css';
 
@@ -7,12 +10,6 @@ import {AddressProps} from '../../interfaces/address';
 interface Props{
     data: AddressProps[];
 }
-
-//Components
-import {ItemList} from './ItemList';
-
-//Icons
-import {MdOutlineArrowBackIos} from 'react-icons/md';
 
 export function ModalSearchZipcodeResult({data}: Props){
     
