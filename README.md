@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# BuscadorCEP!
+O aplicativo BuscadorCEP! permite que você encontre códigos de endereçamento postais (CEP). Se você já tiver o CEP em mãos e gostaria de buscar seu endereço, o BuscadorCEP! também vai te ajudar.
 
 ## Available Scripts
 
