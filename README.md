@@ -8,7 +8,7 @@ O aplicativo BuscadorCEP! permite que você encontre códigos de endereçamento 
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Material UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)
 
-O projeto foi desenvolvido com `React` e `Typescript`, usando o `CSS` para estilização das páginas, as mesmas contendo a navegação realizada pelo `React Router Dom`, consumindo as apis do IBGE e Viacep por meio do `Axios`. Quanto a interface, foi utilizada algumas bibliotecas de `Material UI` como, `Radix UI` para a construção dos modais, a `React Tostify` para a exibição dos erros retornado da api para o usuário, o `React Text Mask` para criação do input de CEP com máscara, por fim a `React Icons` trazendo os ícones para interface. Tudo isso, possibilitando o usuário conseguir encontrar um CEP de determinado lugar e também encontrar um endereço com um CEP em mãos. 
+O projeto foi desenvolvido com `React` e `Typescript`, usando o `CSS` para estilização das páginas, contendo a navegação realizada pelo `React Router Dom`, consumindo as apis do IBGE e Viacep por meio do `Axios`. Quanto a interface, foi utilizada algumas bibliotecas de `Material UI` como, `Radix UI` para a construção dos modais, a `React Tostify` para a exibição dos erros retornado da api para o usuário, o `React Text Mask` para criação do input de CEP com máscara, por fim a `React Icons` trazendo os ícones para interface. Tudo isso, possibilitando o usuário conseguir encontrar um CEP de determinado lugar e também encontrar um endereço com um CEP em mãos. 
 
 ## Scripts Disponíveis
 
